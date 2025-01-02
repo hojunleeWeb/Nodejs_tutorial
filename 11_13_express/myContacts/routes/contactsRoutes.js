@@ -26,6 +26,11 @@ router
     res.send("Contacts page");
   })
   .post((req, res) => {
+    console.log(req.body);
+    const { name, email, phone } = req.body;
+    if (!name || !email || !phone) {
+      return res.send("Please include name, email, phone");
+    }
     res.send("create contacts");
   });
 
